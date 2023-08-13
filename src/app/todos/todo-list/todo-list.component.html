@@ -1,0 +1,17 @@
+<ul class="todo-list">
+    <!-- `editing`  and `completed`  -->
+    <ng-container *ngIf="{todos: todos$ | async, selectedFilter : selectedFilter$ | async} as data">
+        <ng-container *ngIf="data.todos && data.selectedFilter">
+            <app-todo-item *ngFor="let todo of data.todos | filterTodo : data.selectedFilter" [todo]="todo"></app-todo-item>
+        </ng-container>
+    </ng-container>
+
+    <!-- <li>
+        <div class="view">
+            <input class="toggle" type="checkbox">
+            <label>Buy a unicorn</label>
+            <button class="destroy"></button>
+        </div>
+        <input class="edit" value="Rule the web">
+    </li> -->
+</ul>
